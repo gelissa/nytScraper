@@ -4,6 +4,11 @@ var express = require("express");
 var logger = require("morgan");
 // mongoose builds the Schema/deals w DB
 var mongoose = require("mongoose");
+// the models
+var models = require("../models");
+
+// Initialize Express
+var app = express();
 
 // this first route will scrape the nyt
 app.get("/scrape", function(req, res){
@@ -75,3 +80,5 @@ app.post("/articles/:id", function(req, res) {
 app.listen(PORT, function() {
     console.log("App running on port " + PORT + "!");
   });
+
+module.exports = app;

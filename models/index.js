@@ -1,6 +1,6 @@
 // export all the modules i'll be using in one file
 
-module.express = {
+module.exports = {
     Article: require("./Article"),
     Note: require("./Note")
 };

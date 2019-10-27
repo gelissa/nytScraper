@@ -37,7 +37,7 @@ app.use(express.static("public"));
 // mongoose.connect(MONGODB_URI, {useNewUrlParser: true});
 // starting the connection to the db
 // this automatically makes a db in robo3t!!! so be careful
-mongoose.connect("mongodb://localhost/nytScraper", {useNewUrlParser: true });
+mongoose.connect("mongodb://localhost/nytScraper", {useNewUrlParser: true, useUnifiedTopology: true });
 
 // ROUTES WOULD GO HERE BUT I THINK THEYT GO IN THE CONTROLLERS
 // A GET route for scraping the echoJS website
@@ -54,12 +54,12 @@ app.get("/scrape", function(req, res) {
   
         // Add the text and href of every link, and save them as properties of the result object
         result.title = $(this)
-          .children("a")
+          .children("h2")
           .text();
         result.link = $(this)
           .children("a")
           .attr("href");
-          console.log(result);
+          
         // Create a new Article using the `result` object built from scraping
         db.Article.create(result)
           .then(function(dbArticle) {

@@ -79,10 +79,35 @@ button:hover {
     transition-duration: 0.3s;
 }
 
+#wrapper {
+    width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 5%;
+  }
+
 .articles {
-    width: 70vw;
+    width: 50vw;
     /* height: auto; */
-    margin: 0 auto;
+    /* margin: 0 auto; */
     padding: 80px 50px;
     line-height: 2;
+    overflow: auto;
+}
+#notes {
+    float: right;
+    width: 50vw;
+}
+textarea, input {
+    display: block;
+    width: 100%;
+    background-color: white;
+}
+input {
+    height: 36px;
+    font-size: 24px;
+}
+textarea {
+    height: 200px;
+    font-size: 18px;
 }

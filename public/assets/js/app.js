@@ -3,11 +3,12 @@ $.getJSON("/articles", function(data){
     // for each one
     for (var i = 0; i < data.length; i++){
         // display the info on the page
-        $(".articles").append("<p data-id='" + data[i]._id + "'>" + data[i].title + "<br />" + data[i].link + "</p>");
+        $(".articles").append("<p data-id='" + data[i]._id + "'>" + "<h2>" + data[i].title + "</h2>" + "<br />" + "<a href='https://nytimes.com" + data[i].link + "'> Link to article </a>" + "</p>");
     }
 });
 
-$(document).on("click", "p", function(){
+
+$(document).on("click", "h2", function(){
     $("#notes").empty();
     var thisId = $(this).attr("data-id");
 
@@ -48,4 +49,15 @@ $(document).on("click", "#savenote", function(){
     $("#titleinput").val("");
     $("#bodyinput").val("");
 });
+
+$(".clear").on("click", function(){
+    $.ajax({
+        url:"/clear",
+        method:"DELETE"
+    })
+    .then(function(data){
+        console.log("delete");
+        location.reload()
+    })
+})
 

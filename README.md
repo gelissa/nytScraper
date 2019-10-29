@@ -1,4 +1,6 @@
 # nytScraper
+
+![NYT Scraper](./public/assets/nytScrape.png)
 This app queries the New York Times website and presents the top articles and their links to the page. It's your very own newspaper in a simplified page!
 
 # Issues
